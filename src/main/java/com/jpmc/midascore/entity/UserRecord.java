@@ -1,5 +1,10 @@
 package com.jpmc.midascore.entity;
 
+
+//UserRecord class that maps directly to a table in the database
+// part of the persistence layer
+
+
 import jakarta.persistence.*;
 
 @Entity

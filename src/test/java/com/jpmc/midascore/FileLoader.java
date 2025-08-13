@@ -17,3 +17,8 @@ public class FileLoader {
         }
     }
 }
+
+
+//FileLoader class that loads a file from the resources folder
+// Its a Spring Utility Bean that reads text file from the classpath into a String, one per line 
+// It is used to load the test data for the application

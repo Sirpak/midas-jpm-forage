@@ -1,3 +1,7 @@
+//Domain model for a transaction
+
+
+
 package com.jpmc.midascore.foundation;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
