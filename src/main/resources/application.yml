@@ -22,18 +22,30 @@ spring:
       hibernate:
         format_sql: true
   
+ spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+
+    # CONSUMER: read JSON -> Transaction
     consumer:
-      group-id: midas-core-group
+      group-id: midas-core
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
       properties:
-        spring.json.trusted.packages: "*"
+        spring.json.trusted.packages: "com.jpmc.midascore.foundation"
+        # If tests don't send type headers, force the value type:
+        spring.json.value.default.type: "com.jpmc.midascore.foundation.Transaction"
+
+    # PRODUCER: write Transaction -> JSON
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+# The tests look for this property to exist:
+general:
+  kafka-topic: midas.transactions
+
 
 server:
   port: 8080
