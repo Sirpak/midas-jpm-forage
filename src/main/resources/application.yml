@@ -22,7 +22,6 @@ spring:
       hibernate:
         format_sql: true
   
- spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
 
@@ -46,7 +45,6 @@ spring:
 general:
   kafka-topic: midas.transactions
 
-
 server:
   port: 8080
 
@@ -55,8 +53,4 @@ logging:
     com.jpmc.midascore: DEBUG
     org.springframework.kafka: DEBUG
     org.hibernate.SQL: DEBUG
-
-# General application properties
-general:
-  kafka-topic: midas-transactions
 
